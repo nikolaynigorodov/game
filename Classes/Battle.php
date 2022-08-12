@@ -6,13 +6,21 @@ namespace Classes;
 require_once 'Classes\Loggers\GameLogger.php';
 
 use Classes\Loggers\GameLogger;
+use Classes\Units\Unit;
 
 class Battle
 {
     protected object $player1;
     protected object $player2;
 
+    /**
+     * @var Unit $unitPlayer_1
+     */
     protected $unitPlayer_1;
+
+    /**
+     * @var Unit $unitPlayer_2
+     */
     protected $unitPlayer_2;
 
     /**
