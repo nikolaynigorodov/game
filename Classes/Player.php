@@ -4,8 +4,8 @@ namespace Classes;
 require_once 'Classes/Units/Warlock.php';
 require_once 'Classes/Units/Magician.php';
 require_once 'Classes/Units/Paladin.php';
-require_once 'Classes\Loggers\GameLogger.php';
-require_once 'Classes\RandomOrg.php';
+require_once 'Classes/Loggers/GameLogger.php';
+require_once 'Classes/RandomOrg.php';
 
 use Classes\Units\Warlock;
 use Classes\Units\Magician;

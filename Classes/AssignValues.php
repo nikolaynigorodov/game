@@ -56,6 +56,15 @@ class AssignValues
                 unset($this->user2[$key]);
             }
         }
+        $this->checkCommands();
+
+    }
+
+    protected function checkCommands()
+    {
+        if(empty($this->user1) || empty($this->user2)) {
+            $_SESSION['twoCommands'] = "Two teams must participate in the battle";
+        }
     }
 
     /**

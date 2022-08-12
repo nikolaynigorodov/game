@@ -3,7 +3,7 @@
 
 namespace Classes;
 
-require_once 'Classes\Loggers\GameLogger.php';
+require_once 'Classes/Loggers/GameLogger.php';
 
 use Classes\Loggers\GameLogger;
 use Classes\Units\Unit;

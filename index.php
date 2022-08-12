@@ -1,9 +1,9 @@
 <?php
 session_start();
-require_once 'Classes\Player.php';
-require_once 'Classes\Battle.php';
-require_once 'Classes\AssignValues.php';
-require_once 'Classes\Loggers\CsvLogger.php';
+require_once 'Classes/Player.php';
+require_once 'Classes/Battle.php';
+require_once 'Classes/AssignValues.php';
+require_once 'Classes/Loggers/CsvLogger.php';
 
 use Classes\AssignValues;
 use Classes\Battle;
@@ -70,7 +70,7 @@ if(!empty($_POST)){
           <?php
           }
           ?>
-          <small id="warlock_1Help" class="form-text text-muted">Warlock has 100 health, damage from 0 to 10</small>
+          <small id="warlock_1Help" class="form-text text-muted">Warlock has 50 health, damage from 0 to 10</small>
         </div>
         <div class="form-group">
           <label for="magician_1">Magician</label>
@@ -82,7 +82,7 @@ if(!empty($_POST)){
                 <?php
             }
             ?>
-            <small id="magician_1Help" class="form-text text-muted">Magician has 150 health, damage from 10 to 20</small>
+            <small id="magician_1Help" class="form-text text-muted">Magician has 100 health, damage from 10 to 20</small>
         </div>
           <div class="form-group">
               <label for="paladin_1">Paladin</label>
@@ -94,7 +94,7 @@ if(!empty($_POST)){
                   <?php
               }
               ?>
-              <small id="warlock_1Help" class="form-text text-muted">Paladin has 200 health, damage from 20 to 25</small>
+              <small id="warlock_1Help" class="form-text text-muted">Paladin has 150 health, damage from 20 to 25</small>
           </div>
       </div>
       <div class="col-sm">
@@ -109,7 +109,7 @@ if(!empty($_POST)){
                 <?php
             }
             ?>
-            <small id="warlock_2Help" class="form-text text-muted">Warlock has 100 health, damage from 0 to 10</small>
+            <small id="warlock_2Help" class="form-text text-muted">Warlock has 50 health, damage from 0 to 10</small>
         </div>
         <div class="form-group">
           <label for="magician_2">Magician</label>
@@ -121,7 +121,7 @@ if(!empty($_POST)){
                 <?php
             }
             ?>
-            <small id="magician_2Help" class="form-text text-muted">Magician has 150 health, damage from 10 to 20</small>
+            <small id="magician_2Help" class="form-text text-muted">Magician has 100 health, damage from 10 to 20</small>
         </div>
           <div class="form-group">
               <label for="paladin_2">Paladin</label>
@@ -133,18 +133,22 @@ if(!empty($_POST)){
                   <?php
               }
               ?>
-              <small id="warlock_1Help" class="form-text text-muted">Paladin has 200 health, damage from 20 to 25</small>
+              <small id="warlock_1Help" class="form-text text-muted">Paladin has 150 health, damage from 20 to 25</small>
           </div>
       </div>
     </div>
-    <button type="submit" id="submitBattle" class="btn btn-primary" onClick="this.form.submit(); this.disabled=true; this.value='Sending…'; ">Submit</button>
+      <?php
+        if(isset($_SESSION['twoCommands'])) echo '<div class="text-danger">Two teams must participate in the battle</div>';
+      ?>
+    <button type="submit" id="submitBattle" class="btn btn-primary" onClick="this.form.submit(); this.disabled=true; this.value='Sending…'; ">Fight</button>
+
   </form>
 </div>
 
 <div class="container mt-3 text-center">
 
     <?php
-    if(!empty($_POST) && empty($_SESSION)) {
+    if(!empty($_POST) && empty($_SESSION) && !empty($postForPlayer1) && !empty($postForPlayer2)) {
         ?>
             <h2>Результат боя</h2>
         <?php

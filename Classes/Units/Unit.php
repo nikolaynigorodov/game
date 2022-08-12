@@ -4,7 +4,7 @@ namespace Classes\Units;
 use Classes\Loggers\GameLogger;
 use Classes\RandomOrg;
 
-require_once 'Classes\Loggers\GameLogger.php';
+require_once 'Classes/Loggers/GameLogger.php';
 
 class Unit
 {
